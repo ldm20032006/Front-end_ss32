@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div>
+     <img src="./img/Screenshot 2025-03-21 085206.png" alt="">
+    <img src="./img/Screenshot 2025-03-21 085215.png" alt="">
+    <img src="./img/Screenshot 2025-03-21 085222.png" alt="">
+   </div>
+   <script>
+         const imgs = document.querySelectorAll("img");
+         imgs.forEach((img) => {
+              img.addEventListener("click", function(){
+                img.style.width = "100%";
+                img.style.height = "20%";
+              })
+         })
+         imgs.forEach((img) => {
+              img.addEventListener("dblclick", function(){
+                img.style.width = "300px";
+                img.style.height = "300px";
+              })
+         })
+   </script>
+</body>
+</html>

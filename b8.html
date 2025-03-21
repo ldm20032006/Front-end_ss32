@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: black;
+        }
+        button{
+            margin: 10px;
+        }
+        .btn{
+            background-color: red;
+        }
+        li{
+            list-style-type: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TO DO List K24</h1>
+    <input type="text" id="input" placeholder="Nhập công việc">
+    <button class="btn" onclick="add()">Thêm công việc</button>
+
+    <ul>
+
+    </ul>
+    <script>
+        let jobs = [
+           "Học HTML",
+           "Học CSS",
+           "Học JS"
+         ];
+       function render (data){
+        let str="";
+     for (let i = 0; i < jobs.length; i++) {
+       str+=
+       `
+        <li> ${jobs[i]} 
+         <button onclick=deleteJob(${i})>Xóa</button></li>
+         <button onclick=editJob(${i})>Sửa</button></li>
+       ` 
+            
+        }
+        document.querySelector("ul").innerHTML = str;
+       }
+       render(jobs);
+         function add(){
+              const input = document.getElementById("input");
+              jobs.push(input.value);
+              render(jobs);
+              input.value = "";
+         }
+            function deleteJob(index){
+                jobs.splice(index,1);
+                render(jobs);
+            }
+            function updateJob(index){
+                const input = document.getElementById("input");
+                jobs[index] = input.value;
+                let abc =prompt("Nhập công việc mới");
+                jobs[index] = abc;
+                render(jobs);
+                input.value = "";
+            }
+       
+
+    </script>
+</body>
+</html>
